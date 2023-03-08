@@ -24,8 +24,8 @@
   (package-refresh-contents))
 
 (setq straight-host-usernames
-      '((github . "eamondang")
-        (gitlab . "eamondang")))
+      '((github . "kienngynh")
+        (gitlab . "kienngynh")))
 
 (setq straight-vc-git-default-remote-name "straight")
 
@@ -1950,7 +1950,7 @@ deactivate `magit-todos-mode', otherwise enable it."
   :defer t
   :straight (:build t)
   :custom
-  (shell-pop-default-directory "/home/vudangquang")
+  (shell-pop-default-directory "/home/tulipbk")
   (shell-pop-shell-type (quote ("eshell" "*eshell*" (lambda () (eshell shell-pop-term-shell)))))
   (shell-pop-window-size 30)
   (shell-pop-full-span nil)
@@ -4828,7 +4828,7 @@ Spell Commands^^           Add To Dictionary^^              Other
 
   "owg"  '((lambda ()
              (interactive)
-             (browse-url "https://github.com/eamondang"))
+             (browse-url "https://github.com/kienngynh"))
            :wk "My Github")
 
   "owe"  '((lambda ()
