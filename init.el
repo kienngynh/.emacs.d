@@ -98,10 +98,10 @@
           (expand-file-name (format "emacs-custom-%s.el" (user-uid)) temporary-file-directory)))
   (load custom-file t)
 
-(setq user-full-name       "Dang Quang Vu"
-      user-real-login-name "Dang Quang Vu"
-      user-login-name      "eamondang"
-      user-mail-address    "eamondang@gmail.com")
+(setq user-full-name       "Nguyen Huu Kien"
+      user-real-login-name "Nguyen Huu Kien"
+      user-login-name      "kienngynh"
+      user-mail-address    "kien.ngynh@gmail.com")
 
 (setq visible-bell t)
 
@@ -1921,31 +1921,31 @@ deactivate `magit-todos-mode', otherwise enable it."
            (call-interactively 'eshell)))
      :default-config-keywords '(:position :bottom :height 14))))
 
-(use-package vterm
-  :defer t
-  :straight t
-  :general
-  (dqv/leader-key
-   "ot" '(+popwin:vterm :which-key "vTerm popup")
-   "oT" '(vterm :which-key "vTerm"))
-  :preface
-  (when noninteractive
-    (advice-add #'vterm-module-compile :override #'ignore)
-    (provide 'vterm-module))
-  :custom
-  (vterm-max-scrollback 5000)
-  :config
-  (setq term-prompt-regexp "^[^#$%>\n]*[#$%>] *")  ;; Set this to match your custom shell prompt
-  (setq vterm-shell "zsh")                       ;; Set this to customize the shell to launch
-  (setq vterm-max-scrollback 10000)
-  (with-eval-after-load 'popwin
-    (defun +popwin:vterm ()
-      (interactive)
-      (popwin:display-buffer-1
-       (or (get-buffer "*vterm*")
-           (save-window-excursion
-             (call-interactively 'vterm)))
-       :default-config-keywords '(:position :bottom :height 14)))))
+;;(use-package vterm
+;;  :defer t
+;;  :straight t
+;;  :general
+;;  (dqv/leader-key
+;;   "ot" '(+popwin:vterm :which-key "vTerm popup")
+;;   "oT" '(vterm :which-key "vTerm"))
+;; :preface
+;; (when noninteractive
+;;   (advice-add #'vterm-module-compile :override #'ignore)
+;;   (provide 'vterm-module))
+;; :custom
+;; (vterm-max-scrollback 5000)
+;; :config
+;; (setq term-prompt-regexp "^[^#$%>\n]*[#$%>] *")  ;; Set this to match your custom shell prompt
+;; (setq vterm-shell "zsh")                       ;; Set this to customize the shell to launch
+;; (setq vterm-max-scrollback 10000)
+;; (with-eval-after-load 'popwin
+;;   (defun +popwin:vterm ()
+;;     (interactive)
+;;     (popwin:display-buffer-1
+;;      (or (get-buffer "*vterm*")
+;;          (save-window-excursion
+;;            (call-interactively 'vterm)))
+;;      :default-config-keywords '(:position :bottom :height 14)))))
 
 (use-package multi-vterm
   :after vterm
@@ -4069,7 +4069,7 @@ Spell Commands^^           Add To Dictionary^^              Other
     (interactive)
     (progn
       (reset-themes)
-      (load-theme 'modus-operandi t)
+      (load-theme 'doom-moonlight t)
       (stylize-operandi)));end load-operandi
   :config
   (defun stylize-operandi ()
