@@ -24,8 +24,9 @@
   (package-refresh-contents))
 
 (setq straight-host-usernames
-      '((github . "kienngynh")
-        (gitlab . "kienngynh")))
+      '((github . "eamondang")
+        (gitlab . "eamondang")))
+
 (setq straight-vc-git-default-remote-name "straight")
 
 (straight-use-package '(use-package :build t))
@@ -98,10 +99,10 @@
           (expand-file-name (format "emacs-custom-%s.el" (user-uid)) temporary-file-directory)))
   (load custom-file t)
 
-(setq user-full-name       "Nguyen Huu Kien"
-      user-real-login-name "Nguyen Huu Kien"
-      user-login-name      "kienngynh"
-      user-mail-address    "kien.ngynh@gmail.com")
+(setq user-full-name       "Dang Quang Vu"
+      user-real-login-name "Dang Quang Vu"
+      user-login-name      "eamondang"
+      user-mail-address    "eamondang@gmail.com")
 
 (setq visible-bell t)
 
@@ -116,10 +117,10 @@
 (setq display-time-format "%Y-%m-%d %H:%M")
 (display-time-mode 1) ; display time in modeline
 
-;;(let ((battery-str (battery)))
-;;  (unless (or (equal "Battery status not available" battery-str)
-;;              (string-match-p (regexp-quote "N/A") battery-str))
-;;    (display-battery-mode 1)))
+(let ((battery-str (battery)))
+  (unless (or (equal "Battery status not available" battery-str)
+              (string-match-p (regexp-quote "N/A") battery-str))
+    (display-battery-mode 1)))
 
 (column-number-mode)
 
@@ -387,6 +388,10 @@ With a prefix argument, TRASH is nil."
   :config
   (setq which-key-idle-delay 1))
 
+;;(use-package which-key-posframe
+;;  :config
+;;  (which-key-posframe-mode))
+
 (use-package general
   :straight (:build t)
   :init
@@ -423,7 +428,7 @@ With a prefix argument, TRASH is nil."
   (evil-global-set-key 'motion "k" 'evil-previous-visual-line)
   (evil-global-set-key 'motion "w" 'evil-avy-goto-word-1)
   (global-set-key (kbd "s-'") #'evil-window-next)
-
+  
   (general-define-key
    :keymaps 'evil-motion-state-map
    "SPC" nil
@@ -439,7 +444,7 @@ With a prefix argument, TRASH is nil."
    "C-e" nil)
   ;; (dolist (key '("c" "C" "t" "T" "s" "S" "r" "R" "h" "H" "j" "J" "k" "K" "l" "L"))
   ;;   (general-define-key :states 'normal key nil))
-
+  
   ;; (general-define-key
   ;;  :states 'motion
   ;;  "h" 'evil-replace
@@ -450,7 +455,7 @@ With a prefix argument, TRASH is nil."
   ;;  "K" 'evil-smart-doc-lookup
   ;;  "l" 'evil-change
   ;;  "L" 'evil-change-line
-
+  
   ;;  "c" 'evil-backward-char
   ;;  "C" 'evil-window-top
   ;;  "t" 'evil-next-visual-line
@@ -508,7 +513,7 @@ With a prefix argument, TRASH is nil."
   :init
   (global-undo-tree-mode)
   :config
-
+  
   ;; (when (executable-find "zstd")
   ;;   (defun my/undo-tree-append-zst-to-filename (filename)
   ;;     "Append .zst to the FILENAME in order to compress it."
@@ -717,7 +722,23 @@ With a prefix argument, TRASH is nil."
       "Emphasize as strike-through the current region."
       (interactive)
       (org-emphasize 43))
-
+    
+;;    (org-babel-do-load-languages
+;;     'org-babel-load-languages
+;;     '((C . t)
+;;       (emacs-lisp . t)
+;;       (gnuplot . t)
+;;       (latex . t)
+;;       (makefile . t)
+;;       (js . t)
+;;       (rust . t)
+;;       (solidity . t)
+;;       (plantuml . t)
+;;       (python . t)
+;;       (sass . t)
+;;       (shell . t)
+;;       (sql . t))
+;;     )
     (setq org-use-sub-superscripts (quote {}))
     (setq org-latex-compiler "xelatex")
     (require 'engrave-faces)
@@ -726,12 +747,12 @@ With a prefix argument, TRASH is nil."
                        ("T1"   "fontenc"  t ("pdflatex"))
                        (""     "grffile"  t)))
       (delete package org-latex-default-packages-alist))
-
+    
     (dolist (package '(("capitalize" "cleveref")
                        (""           "booktabs")
                        (""           "tabularx")))
       (add-to-list 'org-latex-default-packages-alist package t))
-
+    
     (setq org-latex-reference-command "\\cref{%s}")
     (setq org-export-latex-hyperref-format "\\ref{%s}")
     (setq org-latex-pdf-process
@@ -766,16 +787,16 @@ With a prefix argument, TRASH is nil."
                         ("\\section{%s}" . "\\section*{%s}")
                         ("\\subsection{%s}" . "\\subsection*{%s}")
                         ("\\subsubsection{%s}" . "\\subsubsection*{%s}")))))
-
-
+    
+    
     (setq org-publish-project-alist
           `(
-
-
-
-
-
-
+            
+            
+            
+            
+            
+            
             ))
     (add-hook 'org-mode-hook
               (lambda ()
@@ -1031,12 +1052,12 @@ the value `split-window-right', then it will be changed to
 
 (setq org-publish-project-alist
       `(
-
-
-
-
-
-
+        
+        
+        
+        
+        
+        
         ))
 
 (use-package reftex
@@ -1377,6 +1398,11 @@ the value `split-window-right', then it will be changed to
 
 (setq plstore-cache-passphrase-for-symmetric-encryption t)
 
+;;(use-package org-gcal
+;; :straight t
+;; :config
+;; (setq org-gcal-remove-api-cancelled-events t))
+
 (setq org-gcal-client-id "956221325874-3do4u85pu4s6br8dnlgjgumaje8b0mrg.apps.googleusercontent.com"
       org-gcal-client-secret "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"
       org-gcal-fetch-file-alist '(("vugomars@gmail.com" .  "~/Dropbox/Org/Personal.org")
@@ -1402,6 +1428,30 @@ the value `split-window-right', then it will be changed to
                        org-effort-property
                        (apply #'format "%d:%02d" (cl-floor minutes 60)))))))
 (add-hook 'org-gcal-after-update-entry-functions #'my-org-gcal-set-effort)
+
+;;(use-package org-roam
+;; :ensure t
+;; :hook (after-init . org-roam-mode)
+;; :init
+;; (setq org-roam-v2-ack t)
+;; :custom
+;; (org-roam-directory "~/Dropbox/Roam")
+;; (org-roam-completion-everywhere t)
+;; (org-roam-completion-system 'ivy)
+;; (org-roam-capture-templates
+;;;;;;;;;;;;;;;;;;  '(("d" "default" plain
+;;     "%?"
+;;     :if-new (file+head "%<%Y%m%d%H%M%S>-${slug}.org" "#+title: ${title}\n")
+;;     :unnarrowed t)
+;;    ("l" "programming language" plain
+;;     "* Characteristics\n\n- Family: %?\n- Inspired by: \n\n* Reference:\n\n"
+;;     :if-new (file+head "%<%Y%m%d%H%M%S>-${slug}.org" "#+title: ${title}\n")
+;;     :unnarrowed t)
+;;    ("p" "project" plain "* Goals\n\n%?\n\n* Tasks\n\n** TODO Add initial tasks\n\n* Dates\n\n"
+;;     :if-new (file+head "%<%Y%m%d%H%M%S>-${slug}.org" "#+title: ${title}\n#+filetags: Project")
+;;     :unnarrowed t)))
+;; :config
+;; (org-roam-setup))
 
 (require 'appt)
 
@@ -1433,7 +1483,9 @@ the value `split-window-right', then it will be changed to
 (setq appt-disp-window-function (function dqv/appt-display-native))
 
 ;; Agenda-to-appointent hooks
-(run-at-time "24:01" 3600 'org-agenda-to-appt)           ;; update appt list hourly
+;;(org-agenda-to-appt)             ;; generate the appt list from org agenda files on emacs launch
+;;(run-at-time "24:01" 3600 'org-agenda-to-appt)           ;; update appt list hourly
+;;(add-hook 'org-finalize-agenda-hook 'org-agenda-to-appt) ;; update appt list on agenda view
 
 ;; (use-package lsp-grammarly)
 ;; (use-package websocket
@@ -1921,31 +1973,31 @@ deactivate `magit-todos-mode', otherwise enable it."
            (call-interactively 'eshell)))
      :default-config-keywords '(:position :bottom :height 14))))
 
-;;(use-package vterm
-;;  :defer t
-;;  :straight t
-;;  :general
-;;  (dqv/leader-key
-;;   "ot" '(+popwin:vterm :which-key "vTerm popup")
-;;   "oT" '(vterm :which-key "vTerm"))
-;; :preface
-;; (when noninteractive
-;;   (advice-add #'vterm-module-compile :override #'ignore)
-;;   (provide 'vterm-module))
-;; :custom
-;; (vterm-max-scrollback 5000)
-;; :config
-;; (setq term-prompt-regexp "^[^#$%>\n]*[#$%>] *")  ;; Set this to match your custom shell prompt
-;; (setq vterm-shell "zsh")                       ;; Set this to customize the shell to launch
-;; (setq vterm-max-scrollback 10000)
-;; (with-eval-after-load 'popwin
-;;   (defun +popwin:vterm ()
-;;     (interactive)
-;;     (popwin:display-buffer-1
-;;      (or (get-buffer "*vterm*")
-;;          (save-window-excursion
-;;            (call-interactively 'vterm)))
-;;      :default-config-keywords '(:position :bottom :height 14)))))
+(use-package vterm
+  :defer t
+  :straight t
+  :general
+  (dqv/leader-key
+   "ot" '(+popwin:vterm :which-key "vTerm popup")
+   "oT" '(vterm :which-key "vTerm"))
+  :preface
+  (when noninteractive
+    (advice-add #'vterm-module-compile :override #'ignore)
+    (provide 'vterm-module))
+  :custom
+  (vterm-max-scrollback 5000)
+  :config
+  (setq term-prompt-regexp "^[^#$%>\n]*[#$%>] *")  ;; Set this to match your custom shell prompt
+  (setq vterm-shell "zsh")                       ;; Set this to customize the shell to launch
+  (setq vterm-max-scrollback 10000)
+  (with-eval-after-load 'popwin
+    (defun +popwin:vterm ()
+      (interactive)
+      (popwin:display-buffer-1
+       (or (get-buffer "*vterm*")
+           (save-window-excursion
+             (call-interactively 'vterm)))
+       :default-config-keywords '(:position :bottom :height 14)))))
 
 (use-package multi-vterm
   :after vterm
@@ -2030,6 +2082,23 @@ deactivate `magit-todos-mode', otherwise enable it."
   :defer t
   ;; :straight (:build t)
   :hook (prog-mode . smartparens-mode))
+
+;;(use-package parinfer-rust-mode
+;;  :defer t
+;;  :straight (:build t)
+;;  :diminish parinfer-rust-mode
+;;  :hook emacs-lisp-mode common-lisp-mode scheme-mode
+;;  :init
+;;  (setq parinfer-rust-auto-download     t
+;;        parinfer-rust-library-directory (concat user-emacs-directory
+;;                                                "parinfer-rust/"))
+;;  (add-hook 'parinfer-rust-mode-hook
+;;            (lambda () (smartparens-mode -1)))
+;;  :general
+;;  (dqv/major-leader-key
+;;    :keymaps 'parinfer-rust-mode-map
+;;    "m" #'parinfer-rust-switch-mode
+;;    "M" #'parinfer-rust-toggle-disable))
 
 (use-package string-edit-at-point
   :defer t
@@ -2256,7 +2325,7 @@ deactivate `magit-todos-mode', otherwise enable it."
     :require ("exa")
     (when (file-directory-p file)
       `(shell . ("exa" "--color=always" "-al" ,file))))
-
+  
   (add-to-list 'dirvish-preview-dispatchers 'exa)
   (csetq dired-dwim-target         t
          dired-recursive-copies    'always
@@ -2400,6 +2469,19 @@ deactivate `magit-todos-mode', otherwise enable it."
 (setenv "EDITOR" "emacsclient -c -a emacs")
 
 (setenv "SHELL" "/bin/zsh")
+
+;;(use-package eshell-info-banner
+;;  :after (eshell)
+;;  :defer t
+;;  :straight (eshell-info-banner :build t
+;;                                :type git
+;;                                :host github
+;;                                :protocol ssh
+;;                                :repo "phundrak/eshell-info-banner.el")
+;;  :hook (eshell-banner-load . eshell-info-banner-update-banner)
+;;  :config
+;;  (setq eshell-info-banner-width 80
+;;        eshell-info-banner-partition-prefixes '("/dev" "zroot" "tank")))
 
 (use-package eshell-syntax-highlighting
   :after (esh-mode eshell)
@@ -2579,7 +2661,7 @@ deactivate `magit-todos-mode', otherwise enable it."
           ("cpagerefrange" "{") ("Cpagerefrange" "{")
           ("crefrange" "{")     ("Crefrange" "{")
           ("labelcref" "{")))
-
+  
   (setq font-latex-match-textual-keywords
         '(;; BibLaTeX brackets.
           ("parentext" "{") ("brackettext" "{")
@@ -2589,7 +2671,7 @@ deactivate `magit-todos-mode', otherwise enable it."
           ("textins" "{")   ("textins*" "{")
           ;; Subcaption.
           ("subcaption" "[{")))
-
+  
   (setq font-latex-match-variable-keywords
         '(;; Amsmath.
           ("numberwithin" "{")
@@ -4069,7 +4151,7 @@ Spell Commands^^           Add To Dictionary^^              Other
     (interactive)
     (progn
       (reset-themes)
-      (load-theme 'doom-moonlight t)
+      (load-theme 'modus-operandi t)
       (stylize-operandi)));end load-operandi
   :config
   (defun stylize-operandi ()
