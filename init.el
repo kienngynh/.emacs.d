@@ -116,7 +116,6 @@
 (require 'time)
 (setq display-time-format "%Y-%m-%d %H:%M")
 (display-time-mode 1) ; display time in modeline
-(setq doom-theme 'doom-moonlight)
 
 ;;(let ((battery-str (battery)))
 ;;  (unless (or (equal "Battery status not available" battery-str)
@@ -4437,7 +4436,7 @@ Spell Commands^^           Add To Dictionary^^              Other
   :straight (:build t)
   :ensure t
   :config
-  (load-theme 'doom-monokai-pro t)
+  (load-theme 'doom-moonlight t)
   ;; (load-theme 'doom-monokai-spectrum t)
   (doom-themes-neotree-config)
   (doom-themes-org-config))
