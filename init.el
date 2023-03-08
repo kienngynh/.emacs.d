@@ -99,10 +99,10 @@
           (expand-file-name (format "emacs-custom-%s.el" (user-uid)) temporary-file-directory)))
   (load custom-file t)
 
-(setq user-full-name       "Dang Quang Vu"
-      user-real-login-name "Dang Quang Vu"
-      user-login-name      "eamondang"
-      user-mail-address    "eamondang@gmail.com")
+(setq user-full-name       "Nguyen Huu Kien"
+      user-real-login-name "Nguyen Huu Kien"
+      user-login-name      "kienngynh"
+      user-mail-address    "kien.ngynh@gmail.com")
 
 (setq visible-bell t)
 
@@ -116,11 +116,12 @@
 (require 'time)
 (setq display-time-format "%Y-%m-%d %H:%M")
 (display-time-mode 1) ; display time in modeline
+(setq doom-theme 'doom-moonlight)
 
-(let ((battery-str (battery)))
-  (unless (or (equal "Battery status not available" battery-str)
-              (string-match-p (regexp-quote "N/A") battery-str))
-    (display-battery-mode 1)))
+;;(let ((battery-str (battery)))
+;;  (unless (or (equal "Battery status not available" battery-str)
+;;              (string-match-p (regexp-quote "N/A") battery-str))
+;;    (display-battery-mode 1)))
 
 (column-number-mode)
 
