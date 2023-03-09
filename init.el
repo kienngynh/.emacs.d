@@ -4435,7 +4435,7 @@ Spell Commands^^           Add To Dictionary^^              Other
   :straight (:build t)
   :ensure t
   :config
-  (load-theme 'moonlight t)
+  (load-theme 'doom-moonlight t)
   ;;(load-theme 'doom-monokai-spectrum t)
   (doom-themes-neotree-config)
   (doom-themes-org-config))
