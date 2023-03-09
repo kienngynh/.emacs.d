@@ -721,22 +721,22 @@ With a prefix argument, TRASH is nil."
       (interactive)
       (org-emphasize 43))
 
-;;    (org-babel-do-load-languages
-;;     'org-babel-load-languages
+    (org-babel-do-load-languages
+     'org-babel-load-languages
 ;;     '((C . t)
-;;       (emacs-lisp . t)
+       (emacs-lisp . t)
 ;;       (gnuplot . t)
-;;       (latex . t)
+       (latex . t)
 ;;       (makefile . t)
 ;;       (js . t)
 ;;       (rust . t)
 ;;       (solidity . t)
 ;;       (plantuml . t)
-;;       (python . t)
+       (python . t)
 ;;       (sass . t)
-;;       (shell . t)
+       (shell . t)
 ;;       (sql . t))
-;;     )
+     )
     (setq org-use-sub-superscripts (quote {}))
     (setq org-latex-compiler "xelatex")
     (require 'engrave-faces)
