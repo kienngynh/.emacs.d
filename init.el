@@ -721,8 +721,8 @@ With a prefix argument, TRASH is nil."
       (interactive)
       (org-emphasize 43))
 
-    (org-babel-do-load-languages
-     'org-babel-load-languages
+;;    (org-babel-do-load-languages
+;;     'org-babel-load-languages
 ;;     '((C . t)
 ;;       (emacs-lisp . t)
 ;;       (gnuplot . t)
@@ -736,7 +736,7 @@ With a prefix argument, TRASH is nil."
 ;;       (sass . t)
 ;;       (shell . t)
 ;;       (sql . t))
-     )
+;;     )
     (setq org-use-sub-superscripts (quote {}))
     (setq org-latex-compiler "xelatex")
     (require 'engrave-faces)
