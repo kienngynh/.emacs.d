@@ -5,4 +5,5 @@ org-babel-do-load-languages
 parinfer-rust-mode
 eshell-info-banner
 which-key-posframe
-battery
+battery 
+vterm

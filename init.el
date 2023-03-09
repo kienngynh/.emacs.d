@@ -1973,31 +1973,31 @@ deactivate `magit-todos-mode', otherwise enable it."
            (call-interactively 'eshell)))
      :default-config-keywords '(:position :bottom :height 14))))
 
-(use-package vterm
-  :defer t
-  :straight t
-  :general
-  (dqv/leader-key
-   "ot" '(+popwin:vterm :which-key "vTerm popup")
-   "oT" '(vterm :which-key "vTerm"))
-  :preface
-  (when noninteractive
-    (advice-add #'vterm-module-compile :override #'ignore)
-    (provide 'vterm-module))
-  :custom
-  (vterm-max-scrollback 5000)
-  :config
-  (setq term-prompt-regexp "^[^#$%>\n]*[#$%>] *")  ;; Set this to match your custom shell prompt
-  (setq vterm-shell "zsh")                       ;; Set this to customize the shell to launch
-  (setq vterm-max-scrollback 10000)
-  (with-eval-after-load 'popwin
-    (defun +popwin:vterm ()
-      (interactive)
-      (popwin:display-buffer-1
-       (or (get-buffer "*vterm*")
-           (save-window-excursion
-             (call-interactively 'vterm)))
-       :default-config-keywords '(:position :bottom :height 14)))))
+;;(use-package vterm
+;;  :defer t
+;;  :straight t
+;;  :general
+;;  (dqv/leader-key
+;;   "ot" '(+popwin:vterm :which-key "vTerm popup")
+;;  "oT" '(vterm :which-key "vTerm"))
+;;  :preface
+;;  (when noninteractive
+;;    (advice-add #'vterm-module-compile :override #'ignore)
+;;    (provide 'vterm-module))
+;;  :custom
+;;  (vterm-max-scrollback 5000)
+;;  :config
+;;  (setq term-prompt-regexp "^[^#$%>\n]*[#$%>] *")  ;; Set this to match your custom shell prompt
+;;  (setq vterm-shell "zsh")                       ;; Set this to customize the shell to launch
+;;  (setq vterm-max-scrollback 10000)
+;; (with-eval-after-load 'popwin
+;;    (defun +popwin:vterm ()
+;;     (interactive)
+;;     (popwin:display-buffer-1
+;;      (or (get-buffer "*vterm*")
+;;          (save-window-excursion
+;;            (call-interactively 'vterm)))
+;;      :default-config-keywords '(:position :bottom :height 14)))))
 
 (use-package multi-vterm
   :after vterm
