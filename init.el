@@ -428,7 +428,7 @@ With a prefix argument, TRASH is nil."
   (evil-global-set-key 'motion "k" 'evil-previous-visual-line)
   (evil-global-set-key 'motion "w" 'evil-avy-goto-word-1)
   (global-set-key (kbd "s-'") #'evil-window-next)
-  
+
   (general-define-key
    :keymaps 'evil-motion-state-map
    "SPC" nil
@@ -444,7 +444,7 @@ With a prefix argument, TRASH is nil."
    "C-e" nil)
   ;; (dolist (key '("c" "C" "t" "T" "s" "S" "r" "R" "h" "H" "j" "J" "k" "K" "l" "L"))
   ;;   (general-define-key :states 'normal key nil))
-  
+
   ;; (general-define-key
   ;;  :states 'motion
   ;;  "h" 'evil-replace
@@ -455,7 +455,7 @@ With a prefix argument, TRASH is nil."
   ;;  "K" 'evil-smart-doc-lookup
   ;;  "l" 'evil-change
   ;;  "L" 'evil-change-line
-  
+
   ;;  "c" 'evil-backward-char
   ;;  "C" 'evil-window-top
   ;;  "t" 'evil-next-visual-line
@@ -513,7 +513,7 @@ With a prefix argument, TRASH is nil."
   :init
   (global-undo-tree-mode)
   :config
-  
+
   ;; (when (executable-find "zstd")
   ;;   (defun my/undo-tree-append-zst-to-filename (filename)
   ;;     "Append .zst to the FILENAME in order to compress it."
@@ -722,7 +722,7 @@ With a prefix argument, TRASH is nil."
       "Emphasize as strike-through the current region."
       (interactive)
       (org-emphasize 43))
-    
+
 ;;    (org-babel-do-load-languages
 ;;     'org-babel-load-languages
 ;;     '((C . t)
@@ -747,12 +747,12 @@ With a prefix argument, TRASH is nil."
                        ("T1"   "fontenc"  t ("pdflatex"))
                        (""     "grffile"  t)))
       (delete package org-latex-default-packages-alist))
-    
+
     (dolist (package '(("capitalize" "cleveref")
                        (""           "booktabs")
                        (""           "tabularx")))
       (add-to-list 'org-latex-default-packages-alist package t))
-    
+
     (setq org-latex-reference-command "\\cref{%s}")
     (setq org-export-latex-hyperref-format "\\ref{%s}")
     (setq org-latex-pdf-process
@@ -787,16 +787,16 @@ With a prefix argument, TRASH is nil."
                         ("\\section{%s}" . "\\section*{%s}")
                         ("\\subsection{%s}" . "\\subsection*{%s}")
                         ("\\subsubsection{%s}" . "\\subsubsection*{%s}")))))
-    
-    
+
+
     (setq org-publish-project-alist
           `(
-            
-            
-            
-            
-            
-            
+
+
+
+
+
+
             ))
     (add-hook 'org-mode-hook
               (lambda ()
@@ -1052,12 +1052,12 @@ the value `split-window-right', then it will be changed to
 
 (setq org-publish-project-alist
       `(
-        
-        
-        
-        
-        
-        
+
+
+
+
+
+
         ))
 
 (use-package reftex
@@ -2325,7 +2325,7 @@ deactivate `magit-todos-mode', otherwise enable it."
     :require ("exa")
     (when (file-directory-p file)
       `(shell . ("exa" "--color=always" "-al" ,file))))
-  
+
   (add-to-list 'dirvish-preview-dispatchers 'exa)
   (csetq dired-dwim-target         t
          dired-recursive-copies    'always
@@ -2661,7 +2661,7 @@ deactivate `magit-todos-mode', otherwise enable it."
           ("cpagerefrange" "{") ("Cpagerefrange" "{")
           ("crefrange" "{")     ("Crefrange" "{")
           ("labelcref" "{")))
-  
+
   (setq font-latex-match-textual-keywords
         '(;; BibLaTeX brackets.
           ("parentext" "{") ("brackettext" "{")
@@ -2671,7 +2671,7 @@ deactivate `magit-todos-mode', otherwise enable it."
           ("textins" "{")   ("textins*" "{")
           ;; Subcaption.
           ("subcaption" "[{")))
-  
+
   (setq font-latex-match-variable-keywords
         '(;; Amsmath.
           ("numberwithin" "{")
