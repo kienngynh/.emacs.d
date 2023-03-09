@@ -67,7 +67,6 @@
 
 ;; Set the right directory to store the native comp cache
 (add-to-list 'native-comp-eln-load-path (expand-file-name "eln-cache/" user-emacs-directory))
-
 (setq backup-directory-alist `(("." . ,(expand-file-name ".tmp/backups/"
                                                          user-emacs-directory))))
 
@@ -147,7 +146,6 @@ the user."
                 t)))
 
 (add-hook 'after-change-major-mode-hook #'modeline-contitional-buffer-encoding)
-
   (set-face-attribute 'default nil
                       :font "JetBrains Mono"
                       :weight 'light
@@ -4432,12 +4430,13 @@ Spell Commands^^           Add To Dictionary^^              Other
    modus-operandi-theme-scale-4 1.2
    modus-operandi-theme-scale-5 1.1))
 
+
 (use-package doom-themes
   :straight (:build t)
   :ensure t
   :config
-  (load-theme 'doom-moonlight t)
-  ;; (load-theme 'doom-monokai-spectrum t)
+  (load-theme 'tsdh-dark t)
+  ;;(load-theme 'doom-monokai-spectrum t)
   (doom-themes-neotree-config)
   (doom-themes-org-config))
 
